@@ -44,9 +44,10 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Request $request, string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view("edit", compact("post"));
     }
 
     /**
@@ -54,7 +55,12 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = $request->all();
+        $post = Post::findOrFail($id);
+
+        $post->update($data);
+
+        return redirect()->route("show", [ "id" => $post->id]);
     }
 
     /**
