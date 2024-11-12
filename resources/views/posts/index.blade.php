@@ -2,17 +2,9 @@
 @section('page-title', 'Posts Home')
 @section('content')
     <div class="container">
-        <div class="row justify-content-center">
-
-            {{--
-            !!! TODO !!!
-            --}}
-            {{-- <div class="col-12 text-center my-4">
-                <a href="{{ route('admin.projects.create') }}" class="btn btn-primary">Crea un nuovo progetto</a>
-            </div> --}}
-
-            @forelse ($posts as $post)
-                <div class="col-md-4 mb-4 d-flex align-items-stretch">
+        @forelse ($posts as $post)
+            <div class="row justify-content-center">
+                <div class="w-50 mb-5 d-flex ">
                     <div class="card w-100 pt-2">
                         <div class="card-body">
                             <h5 class="card-title">Post: {{ $post->title }}</h5>
@@ -22,14 +14,16 @@
                                 {{ $post->content }}
                             </p>
                         </div>
+                        <a href="{{ route('posts.show', ['id' => $post->id]) }}" class="btn btn-primary">Visualizza</a>
                     </div>
                 </div>
-            @empty
-                <div class="col-12">
-                    <h2 class="text-center">Non è presente alcun post!</h2>
-                </div>
-            @endforelse
-        </div>
+            </div>
+        @empty
+            <div class="col-12">
+                <h2 class="text-center">Non è presente alcun post!</h2>
+            </div>
+        @endforelse
+    </div>
     </div>
 
 @endsection
