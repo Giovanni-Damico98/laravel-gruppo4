@@ -21,8 +21,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::middleware("auth")->prefix("/admin")->name("posts.")->group(function () {
-    Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('index');
     Route::get('/post/create', [App\Http\Controllers\PostController::class, 'create'])->name('create');
+    Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('index');
     Route::post('/posts', [App\Http\Controllers\PostController::class, 'store'])->name('store');
     Route::get('/show/{id}', [App\Http\Controllers\PostController::class, 'show'])->name('show');
     Route::get('/posts/{id}/edit', [App\Http\Controllers\PostController::class, 'edit'])->name('edit');

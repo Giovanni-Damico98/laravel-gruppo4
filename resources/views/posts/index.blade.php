@@ -15,7 +15,9 @@
                             </p>
                         </div>
                         <a href="{{ route('posts.show', ['id' => $post->id]) }}" class="btn btn-primary">Visualizza</a>
+                        <a href="{{ route('posts.edit', ['id' => $post->id]) }}" class="btn mt-2 btn-warning">Modifica</a>
                     </div>
+
                 </div>
             </div>
         @empty

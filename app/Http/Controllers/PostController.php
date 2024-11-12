@@ -23,7 +23,7 @@ class PostController extends Controller
     public function create()
     {
         $posts = Post::all();
-        return view("posts.create", compact("posts"));
+        return view("posts.index", compact("posts"));
     }
 
     /**
@@ -34,16 +34,15 @@ class PostController extends Controller
         $data = $request->validate([
             "title" => ["required", "string", "min:4", "max:100"],
             "author" => ["required", "string", "min:4", "max:100"],
-            "description" => ["required", "string", "min:10", "max:255"],
+            "content" => ["required", "string", "min:10", "max:255"],
         ]);
 
         $post = new Post();
 
-        $data->request::all();
 
         $post = Post::create($data);
 
-        return redirect()->route("admin.posts", [$post->id]);
+        return redirect()->route("posts.index");
     }
 
     /**
