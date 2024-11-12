@@ -7,7 +7,7 @@
 
         <h2 class="text-center mb-3">Aggiungi i dati di un nuovo Post</h2>
 
-        <form class="row row-cols-1 justify-content-center" action="{{ route("admin.posts.store") }}" method="POST">
+        <form class="row row-cols-1 justify-content-center" action="{{ route("posts.store") }}" method="POST">
             @csrf
 
             <div class="col-6 m-3">
@@ -28,7 +28,7 @@
 
             <div class="col-6 m-3">
                 <label for="posts-description">Inserisci le descrizione del post:</label>
-                <textarea class="form-control" value="{{ old('description') }}" id="posts-description" name="description">
+                <textarea class="form-control" value="{{ old('description') }}" id="posts-description" name="description"></textarea>
                 @error("description")
                     <div class="alert alert-warning mt-2">la descrizione del post deve avere almeno 10 caratteri.</div>
                 @enderror
