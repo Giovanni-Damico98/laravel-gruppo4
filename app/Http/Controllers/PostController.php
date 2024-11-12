@@ -47,7 +47,7 @@ class PostController extends Controller
     public function edit(Request $request, string $id)
     {
         $post = Post::findOrFail($id);
-        return view("edit", compact("post"));
+        return view("admin.edit", compact("post"));
     }
 
     /**
@@ -60,7 +60,7 @@ class PostController extends Controller
 
         $post->update($data);
 
-        return redirect()->route("show", [$post->id]);
+        return redirect()->route("admin.show", [$post->id]);
     }
 
     /**
