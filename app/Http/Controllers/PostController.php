@@ -60,7 +60,7 @@ class PostController extends Controller
 
         $post->update($data);
 
-        return redirect()->route("show", [ "id" => $post->id]);
+        return redirect()->route("show", [$post->id]);
     }
 
     /**
