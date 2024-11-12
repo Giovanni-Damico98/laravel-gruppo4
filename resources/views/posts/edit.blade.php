@@ -3,7 +3,7 @@
 @section("content")
 <section class="container py-4">
     <div class="row justify-content-around">
-        <form class="col-12 col-md-6 card m-3" method="POST" action="{{ route("update", $post->id) }}">
+        <form class="col-12 col-md-6 card m-3" method="POST" action="{{ route("posts.update", $post->id) }}">
             @method("PUT")
             @csrf
 
