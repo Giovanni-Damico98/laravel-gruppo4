@@ -22,7 +22,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $posts = Post::all();
+        return view("posts.create", compact("posts"));
     }
 
     /**
@@ -30,7 +31,19 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            "title" => ["required", "string", "min:4", "max:100"],
+            "author" => ["required", "string", "min:4", "max:100"],
+            "description" => ["required", "string", "min:10", "max:255"],
+        ]);
+
+        $post = new Post();
+
+        $data->request::all();
+
+        $post = Post::create($data);
+
+        return redirect()->route("admin.posts", [$post->id]);
     }
 
     /**
