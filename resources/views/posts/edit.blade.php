@@ -20,10 +20,16 @@
             <div class="mb-3">
                 <label for="post-author" class="form-label">Author:</label>
                 <input type="text" class="form-control" id="post-author" name="author" value="{{ old('author', $post->author) }}">
+                @error("author")
+                    <div class="alert alert-danger"> {{ $message }}</div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="post-content" class="form-label">Content:</label>
                 <input type="text" class="form-control" id="post-content" name="content" value="{{ old('content', $post->content) }}">
+                @error("content")
+                    <div class="alert alert-danger"> {{ $message }}</div>
+                @enderror
             </div>
 
             <div class="mb-3 d-flex justify-content-center align-items-center">
